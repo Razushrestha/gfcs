@@ -121,18 +121,23 @@ export default function PublicationsPage() {
     return matchesCategory && matchesSearch
   })
 
+  const activeCategoryLabel = categories.find(c => c.id === selectedCategory)?.label ?? 'All Articles'
+
   return (
     <>
       {/* Hero Section */}
       <Section background="blue" spacing="lg">
         <Container>
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Insights & Publications
             </h1>
-            <p className="text-xl text-blue-100">
+            <p className="text-lg text-blue-700 mb-6">
               Expert perspectives on tax, audit, corporate compliance, and business advisory topics to help you stay informed and ahead.
             </p>
+            <div>
+              <Button href="/contact" variant="primary" size="md">Request Consultation</Button>
+            </div>
           </div>
         </Container>
       </Section>
@@ -169,7 +174,7 @@ export default function PublicationsPage() {
                 onClick={() => setSelectedCategory(category.id)}
                 className={`px-6 py-3 rounded-lg font-semibold transition-all ${
                   selectedCategory === category.id
-                    ? 'bg-blue-600 text-white shadow-md'
+                    ? 'bg-blue-600 text-white shadow-lg ring-2 ring-blue-300'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
@@ -181,9 +186,12 @@ export default function PublicationsPage() {
           {/* Results Count */}
           <div className="text-center mb-8">
             <p className="text-gray-600">
-              Showing <span className="font-semibold text-gray-900">{filteredPublications.length}</span> article{filteredPublications.length !== 1 ? 's' : ''}
+              Showing <span className="font-semibold text-gray-900">{filteredPublications.length}</span> {filteredPublications.length !== 1 ? 'results' : 'result'}
+              <span className="ml-3 inline-flex items-center bg-gray-100 text-gray-700 text-sm font-medium px-3 py-1 rounded-full">
+                {activeCategoryLabel}{searchQuery ? ` • "${searchQuery}"` : ''}
+              </span>
             </p>
-          </div>
+          </div>"
         </Container>
       </Section>
 
@@ -264,32 +272,7 @@ export default function PublicationsPage() {
         </Container>
       </Section>
 
-      {/* Newsletter CTA Section */}
-      <Section background="blue" spacing="md">
-        <Container>
-          <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold text-white mb-4">
-              Stay Updated with GFCS Insights
-            </h2>
-            <p className="text-xl text-blue-100 mb-8">
-              Subscribe to receive the latest articles, regulatory updates, and expert insights directly to your inbox.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-6 py-3 rounded-lg border-2 border-white focus:ring-2 focus:ring-white focus:border-transparent"
-              />
-              <Button variant="secondary" size="lg">
-                Subscribe
-              </Button>
-            </div>
-            <p className="text-sm text-blue-100 mt-4">
-              No spam. Unsubscribe anytime.
-            </p>
-          </div>
-        </Container>
-      </Section>
+
 
       {/* CTA Section */}
       <Section background="gray" spacing="md">

@@ -169,26 +169,7 @@ export default function Home() {
                 Trusted by enterprises, SMEs, and institutions across Nepal for compliant, reliable, and strategic financial advisory services.
               </p>
 
-              {/* Animated Buttons - Improved Layout */}
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 mb-20 animate-fadeInUp animation-delay-600 px-4">
-                <Button href="/contact" size="lg" className="w-full sm:w-auto shadow-lg hover:shadow-xl transition-all hover:scale-105">
-                  <span className="flex items-center justify-center">
-                    Request a Consultation
-                    <svg className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </span>
-                </Button>
-                <Button href="/team" variant="outline" size="lg" className="w-full sm:w-auto border-2 hover:scale-105 transition-transform">
-                  <span className="flex items-center justify-center">
-                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
-                    </svg>
-                    Talk to an Expert
-                  </span>
-                </Button>
-              </div>
-            </div>
+
 
             {/* Animated Stats - Better Alignment */}
             <div className="animate-fadeInUp animation-delay-900">
@@ -205,6 +186,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
+          </div>
           </div>
         </Container>
       </Section>

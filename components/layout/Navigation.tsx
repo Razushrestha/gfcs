@@ -45,7 +45,7 @@ export default function Navigation() {
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           <Link href="/" className="flex items-center">
-            <img src="/logo.png" alt="GFCS" className="h-[40px] w-auto object-contain" />
+            <img src="/logo.png" alt="GFCS" className="h-[60px] w-auto object-contain" />
           </Link>
 
           <div className="hidden lg:flex items-center space-x-1">

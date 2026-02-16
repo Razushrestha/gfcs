@@ -16,13 +16,17 @@ export default function ContactPage() {
       <Section background="blue" spacing="lg">
         <Container>
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Get in Touch with Our Experts
             </h1>
-            <p className="text-xl text-blue-100">
-              Ready to transform your business with expert financial advisory?
-              Our team is here to assist you with tailored solutions.
+            <p className="text-lg text-blue-700 mb-6">
+              Ready to transform your business with expert financial advisory? Our team is here to assist you with tailored solutions.
             </p>
+            <div>
+              <Button href="#contact-form" variant="primary" size="md" className="inline-flex">
+                Request Consultation
+              </Button>
+            </div>
           </div>
         </Container>
       </Section>
@@ -40,7 +44,7 @@ export default function ContactPage() {
                 Fill out the form below and one of our specialists will contact you within 24 hours.
               </p>
 
-              <form className="space-y-6">
+              <form id="contact-form" className="space-y-6 bg-white p-8 rounded-lg shadow-md">
                 {/* Full Name */}
                 <div>
                   <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-2">
@@ -205,17 +209,17 @@ export default function ContactPage() {
 
                 {/* Email (HQ + Branch + Careers) */}
                 <div className="flex items-start mb-6">
-                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center shrink-0">
                     <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                     </svg>
                   </div>
                   <div className="ml-4">
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">Email</h3>
-                    <p className="text-gray-600">
-                      Headquarter: info@gfcsnepal.com<br />
-                      Branch: corporate@gfcsnepal.com<br />
-                      Careers: ramhari@gfcsnepal.com
+                    <p className="text-gray-600 space-y-1">
+                      <a href="mailto:info@gfcsnepal.com" className="block hover:text-blue-700">Headquarter: info@gfcsnepal.com</a>
+                      <a href="mailto:corporate@gfcsnepal.com" className="block hover:text-blue-700">Branch: corporate@gfcsnepal.com</a>
+                      <a href="mailto:ramhari@gfcsnepal.com" className="block hover:text-blue-700">Careers: ramhari@gfcsnepal.com</a>
                     </p>
                   </div>
                 </div>
@@ -257,14 +261,14 @@ export default function ContactPage() {
               {/* Google Map */}
               <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.1837704644855!2d85.31472!3d27.7058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb18fc5f32a4f9%3A0x7a2e622d5f4e8c4d!2sDurbar%20Marg%2C%20Kathmandu%2044600!5e0!3m2!1sen!2snp!4v1234567890123!5m2!1sen!2snp"
+                  src="https://maps.google.com/maps?q=Banasthali%20Chowk%20Kathmandu&z=15&output=embed"
                   width="100%"
                   height="300"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="GFCS Office Location"
+                  title="GFCS Headquarter Location"
                 />
               </div>
 

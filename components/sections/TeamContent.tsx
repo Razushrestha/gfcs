@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Container from '@/components/ui/Container';
 import Section from '@/components/ui/Section';
 import Button from '@/components/ui/Button';
+import ContactCard from '@/components/ui/ContactCard';
 
 interface TeamMember {
   id: string;
@@ -22,75 +23,7 @@ export default function TeamContent() {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
 
   const teamMembers: TeamMember[] = [
-    {
-      id: '1',
-      name: 'Ramesh K. Shrestha',
-      designation: 'Founding Partner & CEO',
-      expertise: 'Audit & Corporate Governance',
-      bio: 'Ramesh brings over 20 years of experience in audit, assurance, and corporate governance. A chartered accountant with extensive knowledge of Nepal\'s regulatory framework, he has led audit engagements for some of the country\'s largest enterprises and financial institutions.',
-      experience: '20+ years',
-      specializations: ['Statutory Audit', 'Internal Controls', 'Corporate Governance', 'Risk Management'],
-      email: 'ramesh.shrestha@gfcs.com.np',
-      linkedin: '#',
-      image: '/team/ramesh.jpg',
-    },
-    {
-      id: '2',
-      name: 'Sunita Tamang',
-      designation: 'Partner - Tax Advisory',
-      expertise: 'Corporate Tax & Compliance',
-      bio: 'Sunita specializes in corporate tax planning, international taxation, and transfer pricing. With 15+ years advising multinational corporations and domestic enterprises, she provides strategic tax solutions that optimize outcomes while ensuring full regulatory compliance.',
-      experience: '15+ years',
-      specializations: ['Corporate Tax Planning', 'International Taxation', 'Transfer Pricing', 'Tax Disputes'],
-      email: 'sunita.tamang@gfcs.com.np',
-      linkedin: '#',
-      image: '/team/sunita.jpg',
-    },
-    {
-      id: '3',
-      name: 'Anil Bajracharya',
-      designation: 'Partner - Business Advisory',
-      expertise: 'Strategy & Financial Planning',
-      bio: 'Anil is a seasoned business advisor with expertise in growth strategy, financial modeling, and business restructuring. He has successfully guided numerous businesses through expansion, turnaround, and transformation initiatives across diverse industries.',
-      experience: '18+ years',
-      specializations: ['Growth Strategy', 'Financial Modeling', 'Business Restructuring', 'M&A Advisory'],
-      email: 'anil.bajracharya@gfcs.com.np',
-      linkedin: '#',
-      image: '/team/anil.jpg',
-    },
-    {
-      id: '4',
-      name: 'Meera Rana',
-      designation: 'Senior Manager - Accounting',
-      expertise: 'Financial Reporting & Systems',
-      bio: 'Meera leads our accounting services team with a focus on financial reporting, accounting systems implementation, and process optimization. Her attention to detail and systematic approach ensure clients receive accurate, timely financial information.',
-      experience: '12+ years',
-      specializations: ['Financial Reporting', 'Accounting Systems', 'Process Improvement', 'Internal Controls'],
-      email: 'meera.rana@gfcs.com.np',
-      image: '/team/meera.jpg',
-    },
-    {
-      id: '5',
-      name: 'Prakash Adhikari',
-      designation: 'Senior Manager - Corporate Services',
-      expertise: 'Corporate Law & Compliance',
-      bio: 'Prakash specializes in corporate law, company formation, and regulatory compliance. His comprehensive understanding of Nepal\'s corporate regulatory environment helps clients navigate complex legal and administrative requirements efficiently.',
-      experience: '14+ years',
-      specializations: ['Company Formation', 'Corporate Compliance', 'Board Governance', 'Regulatory Filings'],
-      email: 'prakash.adhikari@gfcs.com.np',
-      image: '/team/prakash.jpg',
-    },
-    {
-      id: '6',
-      name: 'Rita Gurung',
-      designation: 'Manager - Audit & Assurance',
-      expertise: 'Financial Audit & Internal Controls',
-      bio: 'Rita brings strong analytical skills and meticulous attention to detail to every audit engagement. She has conducted numerous statutory audits across various sectors and specializes in internal control evaluation and improvement.',
-      experience: '10+ years',
-      specializations: ['Statutory Audit', 'Internal Audit', 'Controls Testing', 'Risk Assessment'],
-      email: 'rita.gurung@gfcs.com.np',
-      image: '/team/rita.jpg',
-    },
+    // Leadership — ordered by seniority
     {
       id: '7',
       name: 'Navaraj Regmi',
@@ -100,7 +33,8 @@ export default function TeamContent() {
       experience: '15 years',
       specializations: ['Strategic Planning', 'Operations Management', 'Client Relations'],
       email: 'navaraj.regmi@gfcsnepal.com',
-      image: '/team/navaraj.jpg',
+      // use the actual uploaded image inside public/teams (filename contains a space)
+      image: '/teams/Navaraj%20regmi.png',
     },
     {
       id: '8',
@@ -111,62 +45,23 @@ export default function TeamContent() {
       experience: '25+ years',
       specializations: ['Business Development', 'Regulatory Affairs', 'Firm Strategy'],
       email: 'ramhari@gfcsnepal.com',
-      image: '/team/ramhari.jpg',
+      // use uploaded team headshot from public/teams
+      image: '/teams/ramhari%20khanal%20.png',
     },
+
+    // Senior management
+
+
     {
-      id: '9',
-      name: 'Susmita Neupane',
-      designation: 'Corporate Affairs Manager',
-      expertise: 'Corporate Affairs & Compliance',
-      bio: 'Susmita manages corporate affairs and regulatory relationships, ensuring smooth compliance and stakeholder communication.',
+      id: '16',
+      name: 'Shushma Basnet',
+      designation: 'Finance Manager',
+      expertise: 'Financial Management',
+      bio: 'Shushma oversees financial planning, budgeting and internal financial controls.',
       experience: '3+ years',
-      specializations: ['Corporate Compliance', 'Stakeholder Relations'],
-      email: 'susmita.neupane@gfcsnepal.com',
-      image: '/team/susmita.jpg',
-    },
-    {
-      id: '10',
-      name: 'Sushma Adhakari',
-      designation: 'Corporate Lawyer',
-      expertise: 'Corporate Law',
-      bio: 'Sushma advises on corporate legal matters, contracts and compliance with a practical, solutions-focused approach.',
-      experience: '2+ years',
-      specializations: ['Corporate Law', 'Contract Review', 'Regulatory Compliance'],
-      email: 'sushma.adhakari@gfcsnepal.com',
-      image: '/team/sushma-adhakari.jpg',
-    },
-    {
-      id: '11',
-      name: 'Ambika Poudel',
-      designation: 'Office Assistant',
-      expertise: 'Office Administration',
-      bio: 'Ambika supports day-to-day office operations and client coordination to keep the firm running smoothly.',
-      experience: '2+ years',
-      specializations: ['Office Administration', 'Client Support'],
-      email: 'ambika.poudel@gfcsnepal.com',
-      image: '/team/ambika.jpg',
-    },
-    {
-      id: '12',
-      name: 'Jamuna Poudel',
-      designation: 'Account Officer',
-      expertise: 'Accounting Operations',
-      bio: 'Jamuna handles transactional accounting and assists with monthly financial reporting.',
-      experience: '2+ years',
-      specializations: ['Accounts Payable', 'Bookkeeping'],
-      email: 'jamuna.poudel@gfcsnepal.com',
-      image: '/team/jamuna.jpg',
-    },
-    {
-      id: '13',
-      name: 'Nil Bahadur Khadka',
-      designation: 'Account Manager',
-      expertise: 'Client Accounts & Reporting',
-      bio: 'Nil manages client accounts and ensures timely financial reporting and reconciliations.',
-      experience: '2+ years',
-      specializations: ['Financial Reporting', 'Client Accounting'],
-      email: 'nilbahadur.khadka@gfcsnepal.com',
-      image: '/team/nilbahadur.jpg',
+      specializations: ['Budgeting', 'Financial Controls', 'Management Reporting'],
+      email: 'shushma.basnet@gfcsnepal.com',
+      image: '/teams/sushma%20basnet.png',
     },
     {
       id: '14',
@@ -177,29 +72,43 @@ export default function TeamContent() {
       experience: '7+ years',
       specializations: ['Recruitment', 'Employee Relations', 'HR Policy'],
       email: 'kabita.neupane@gfcsnepal.com',
-      image: '/team/kabita.jpg',
+      image: '/teams/Kabita%20neupney.png',
     },
     {
-      id: '15',
-      name: 'Shila Adhakari',
-      designation: 'Account Officer',
-      expertise: 'Accounting Operations',
-      bio: 'Shila supports accounting processes and month-end close activities for client accounts.',
-      experience: '2+ years',
-      specializations: ['Bookkeeping', 'Reconciliations'],
-      email: 'shila.adhakari@gfcsnepal.com',
-      image: '/team/shila.jpg',
-    },
-    {
-      id: '16',
-      name: 'Shushma Basnet',
-      designation: 'Finance Manager',
-      expertise: 'Financial Management',
-      bio: 'Shushma oversees financial planning, budgeting and internal financial controls.',
+      id: '9',
+      name: 'Susmita Neupane',
+      designation: 'Corporate Affairs Manager',
+      expertise: 'Corporate Affairs & Compliance',
+      bio: 'Susmita manages corporate affairs and regulatory relationships, ensuring smooth compliance and stakeholder communication.',
       experience: '3+ years',
-      specializations: ['Budgeting', 'Financial Controls', 'Management Reporting'],
-      email: 'shushma.basnet@gfcsnepal.com',
-      image: '/team/shushma.jpg',
+      specializations: ['Corporate Compliance', 'Stakeholder Relations'],
+      email: 'susmita.neupane@gfcsnepal.com',
+      image: '/teams/susmita_neupane.png',
+    },
+    {
+      id: '10',
+      name: 'Sushma Adhakari',
+      designation: 'Corporate Lawyer',
+      expertise: 'Corporate Law',
+      bio: 'Sushma advises on corporate legal matters, contracts and compliance with a practical, solutions-focused approach.',
+      experience: '2+ years',
+      specializations: ['Corporate Law', 'Contract Review', 'Regulatory Compliance'],
+      email: 'sushma.adhakari@gfcsnepal.com',
+      image: '/teams/sushma_Adhakari.png',
+    },
+
+    // Managers / Account teams
+
+    {
+      id: '13',
+      name: 'Nil Bahadur Khadka',
+      designation: 'Account Manager',
+      expertise: 'Client Accounts & Reporting',
+      bio: 'Nil manages client accounts and ensures timely financial reporting and reconciliations.',
+      experience: '2+ years',
+      specializations: ['Financial Reporting', 'Client Accounting'],
+      email: 'nilbahadur.khadka@gfcsnepal.com',
+      image: '/teams/nil%20bahadur%20khadka.png',
     },
     {
       id: '17',
@@ -210,13 +119,59 @@ export default function TeamContent() {
       experience: '3+ years',
       specializations: ['Client Accounting', 'Financial Reporting'],
       email: 'rabina.amgain@gfcsnepal.com',
-      image: '/team/rabina.jpg',
+      image: '/teams/Rabina%20Amgain.png',
+    },
+    {
+      id: '12',
+      name: 'Jamuna Poudel',
+      designation: 'Account Officer',
+      expertise: 'Accounting Operations',
+      bio: 'Jamuna handles transactional accounting and assists with monthly financial reporting.',
+      experience: '2+ years',
+      specializations: ['Accounts Payable', 'Bookkeeping'],
+      email: 'jamuna.poudel@gfcsnepal.com',
+      image: '/teams/jamuna%20poudel.png',
+    },
+    {
+      id: '15',
+      name: 'Shila Adhakari',
+      designation: 'Account Officer',
+      expertise: 'Accounting Operations',
+      bio: 'Shila supports accounting processes and month-end close activities for client accounts.',
+      experience: '2+ years',
+      specializations: ['Bookkeeping', 'Reconciliations'],
+      email: 'shila.adhakari@gfcsnepal.com',
+      image: '/teams/shila_adhakari.png',
+    },
+
+    // Support
+    {
+      id: '11',
+      name: 'Ambika Poudel',
+      designation: 'Office Assistant',
+      expertise: 'Office Administration',
+      bio: 'Ambika supports day-to-day office operations and client coordination to keep the firm running smoothly.',
+      experience: '2+ years',
+      specializations: ['Office Administration', 'Client Support'],
+      email: 'ambika.poudel@gfcsnepal.com',
+      image: '/teams/Ambika_poudel.png',
     },
   ];
 
   return (
     <>
       <main className="pt-20">
+        <Section background="blue" spacing="lg">
+          <Container>
+            <div className="text-center max-w-3xl mx-auto">
+              <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">Our Team</h1>
+              <p className="text-lg text-blue-700 mb-6">Meet the professionals who deliver expert accounting, audit and advisory services across Nepal.</p>
+              <div>
+                <Button href="/contact" variant="primary" size="md">Request Consultation</Button>
+              </div>
+            </div>
+          </Container>
+        </Section>
         <Section spacing="lg" background="white">
           <Container>
             <div className="max-w-3xl mx-auto text-center mb-16">
@@ -235,10 +190,18 @@ export default function TeamContent() {
                   className="bg-white border border-gray-200 rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 cursor-pointer"
                   onClick={() => setSelectedMember(member)}
                 >
-                  <div className="aspect-square bg-gray-200 flex items-center justify-center">
-                    <svg className="w-24 h-24 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                    </svg>
+                  <div className="aspect-square bg-gray-200 flex items-center justify-center overflow-hidden">
+                    {member.image?.startsWith('/teams/') ? (
+                      <img
+                        src={member.image}
+                        alt={member.name}
+                        className="w-full h-full object-top object-cover"
+                      />
+                    ) : (
+                      <svg className="w-24 h-24 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                      </svg>
+                    )}
                   </div>
                   <div className="p-6">
                     <h3 className="text-xl font-semibold text-gray-900 mb-1">{member.name}</h3>
@@ -253,6 +216,8 @@ export default function TeamContent() {
             </div>
           </Container>
         </Section>
+
+        <ContactCard />
 
         <Section spacing="lg" background="blue">
           <Container>
@@ -283,10 +248,14 @@ export default function TeamContent() {
             <div className="p-8">
               <div className="flex justify-between items-start mb-6">
                 <div className="flex gap-4">
-                  <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center flex-shrink-0">
-                    <svg className="w-12 h-12 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                    </svg>
+                  <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center shrink-0 overflow-hidden">
+                    {selectedMember.image?.startsWith('/teams/') ? (
+                      <img src={selectedMember.image} alt={selectedMember.name} className="w-24 h-24 rounded-full object-top object-cover" />
+                    ) : (
+                      <svg className="w-12 h-12 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+                      </svg>
+                    )}
                   </div>
                   <div>
                     <h2 className="text-2xl font-bold text-gray-900 mb-1">{selectedMember.name}</h2>

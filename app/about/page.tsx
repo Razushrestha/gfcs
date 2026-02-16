@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import Container from '@/components/ui/Container'
 import Section from '@/components/ui/Section'
 import Button from '@/components/ui/Button'
+import ContactCard from '@/components/ui/ContactCard'
 
 export const metadata: Metadata = {
   title: 'About Us - GFCS Consulting & Advisory',
@@ -16,12 +17,15 @@ export default function AboutPage() {
       <Section background="blue" spacing="lg">
         <Container>
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               About GFCS
             </h1>
-            <p className="text-xl text-blue-100">
-              Trusted partners in financial excellence, dedicated to empowering businesses through expert advisory and unwavering integrity.
+            <p className="text-lg text-blue-700 mb-6">
+              Trusted partners in financial excellence — empowering businesses with expert advisory and unwavering integrity.
             </p>
+            <div>
+              <Button href="/contact" variant="primary" size="md">Request Consultation</Button>
+            </div>
           </div>
         </Container>
       </Section>
@@ -234,6 +238,30 @@ export default function AboutPage() {
               <div className="text-3xl font-bold text-blue-600 mb-2">25+</div>
               <div className="text-sm font-semibold text-gray-900 mb-1">Expert Professionals</div>
               <div className="text-xs text-gray-600">Certified and experienced team</div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
+      {/* Contact block */}
+      <Section background="white" spacing="md">
+        <Container>
+          <div className="max-w-4xl mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-8 items-center bg-white rounded-lg shadow-md p-6 lg:p-8 mb-8">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">Contact Us</h3>
+                <p className="text-gray-600 mb-4">Call or email our headquarter or branch — we’ll respond within 24 hours.</p>
+                <p className="text-sm text-gray-700 mb-2"><strong>Address:</strong> Banasthali Chowk, Kathmandu</p>
+                <p className="text-sm text-gray-700 mb-2"><strong>Phone:</strong> <a href="tel:+9779847761230" className="text-blue-700 hover:underline">+977 9847761230</a> / <a href="tel:+9779802360825" className="text-blue-700 hover:underline">+977 9802360825</a></p>
+                <p className="text-sm text-gray-700 mb-4"><strong>Email:</strong> <a href="mailto:info@gfcsnepal.com" className="text-blue-700 hover:underline">info@gfcsnepal.com</a></p>
+                <div className="flex gap-3">
+                  <Button href="/contact" variant="primary">Request Consultation</Button>
+                  <Button href="/services" variant="outline">View Services</Button>
+                </div>
+              </div>
+              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                <iframe src="https://maps.google.com/maps?q=Banasthali%20Chowk%20Kathmandu&z=15&output=embed" width="100%" height="220" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="GFCS Location" />
+              </div>
             </div>
           </div>
         </Container>

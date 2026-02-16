@@ -3,6 +3,7 @@ import Container from '@/components/ui/Container'
 import Section from '@/components/ui/Section'
 import Button from '@/components/ui/Button'
 import Link from 'next/link'
+import ContactCard from '@/components/ui/ContactCard' 
 
 export const metadata: Metadata = {
   title: 'Our Services - GFCS Consulting & Advisory',
@@ -100,15 +101,16 @@ export default function ServicesPage() {
       <Section background="blue" spacing="lg">
         <Container>
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
               Comprehensive Financial & Business Solutions
             </h1>
-            <p className="text-xl text-blue-100 mb-8">
+            <p className="text-lg text-blue-700 mb-6">
               From audit and assurance to tax advisory and corporate services, GFCS delivers expert solutions tailored to your business needs.
             </p>
-            <Button href="/contact" variant="secondary" size="lg">
-              Request a Consultation
-            </Button>
+            <div className="flex items-center justify-center gap-4">
+              <Button href="/contact" variant="primary" size="md">Request a Consultation</Button>
+              <Button href="#services-overview" variant="outline" size="md">Explore Services</Button>
+            </div>
           </div>
         </Container>
       </Section>
@@ -229,9 +231,31 @@ export default function ServicesPage() {
         </Container>
       </Section>
 
+      {/* Contact block */}
+      <Section background="white" spacing="md">
+        <Container>
+          <div className="max-w-4xl mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-8 items-center bg-white rounded-lg shadow-md p-6 lg:p-8 mb-8">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">Get in touch</h3>
+                <p className="text-gray-600 mb-4">Speak with our specialists for tailored advisory and service packages.</p>
+                <p className="text-sm text-gray-700 mb-2"><strong>Phone:</strong> <a href="tel:+9779847761230" className="text-blue-700 hover:underline">+977 9847761230</a></p>
+                <p className="text-sm text-gray-700 mb-4"><strong>Email:</strong> <a href="mailto:corporate@gfcsnepal.com" className="text-blue-700 hover:underline">corporate@gfcsnepal.com</a></p>
+
+              </div>
+              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm">
+                <iframe src="https://maps.google.com/maps?q=Banasthali%20Chowk%20Kathmandu&z=15&output=embed" width="100%" height="220" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="GFCS Location" />
+              </div>
+            </div>
+          </div>
+        </Container>
+      </Section>
+
       {/* CTA Section */}
       <Section background="blue" spacing="md">
         <Container>
+          <ContactCard />
+
           <div className="text-center max-w-2xl mx-auto">
             <h2 className="text-3xl font-bold text-white mb-4">
               Ready to Get Started?
