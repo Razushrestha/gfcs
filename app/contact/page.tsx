@@ -169,7 +169,7 @@ export default function ContactPage() {
                 Our Office
               </h2>
 
-              {/* Address */}
+              {/* Contact details (Headquarter, Branch, Subsidiaries, Careers) */}
               <div className="mb-8">
                 <div className="flex items-start mb-6">
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -179,15 +179,15 @@ export default function ContactPage() {
                     </svg>
                   </div>
                   <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Address</h3>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Headquarter</h3>
                     <p className="text-gray-600">
-                      Durbarmarg, Kathmandu<br />
+                      Banasthali Chowk, Kathmandu<br />
                       Nepal
                     </p>
                   </div>
                 </div>
 
-                {/* Phone */}
+                {/* Phone (HQ + Branch) */}
                 <div className="flex items-start mb-6">
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                     <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -197,13 +197,13 @@ export default function ContactPage() {
                   <div className="ml-4">
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">Phone</h3>
                     <p className="text-gray-600">
-                      +977-1-XXXXXXX<br />
-                      +977-9XXXXXXXXX
+                      Headquarter: +977 9847761230<br />
+                      Branch Office: +977 9802360825
                     </p>
                   </div>
                 </div>
 
-                {/* Email */}
+                {/* Email (HQ + Branch + Careers) */}
                 <div className="flex items-start mb-6">
                   <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                     <svg className="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -213,8 +213,26 @@ export default function ContactPage() {
                   <div className="ml-4">
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">Email</h3>
                     <p className="text-gray-600">
-                      info@gfcs.com.np<br />
-                      contact@gfcs.com.np
+                      Headquarter: info@gfcsnepal.com<br />
+                      Branch: corporate@gfcsnepal.com<br />
+                      Careers: ramhari@gfcsnepal.com
+                    </p>
+                  </div>
+                </div>
+
+                {/* Branch & Subsidiaries */}
+                <div className="flex items-start mb-6">
+                  <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <svg className="w-6 h-6 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V7" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 3v4M8 3v4M3 11h18" />
+                    </svg>
+                  </div>
+                  <div className="ml-4">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Branch & Subsidiaries</h3>
+                    <p className="text-gray-600">
+                      Branch location: Anamnagar, Kathmandu<br />
+                      Subsidiary offices: Ilam, Gorkha, Dang, Chitwan, Surkhet
                     </p>
                   </div>
                 </div>

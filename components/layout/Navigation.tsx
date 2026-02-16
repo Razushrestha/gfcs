@@ -39,16 +39,13 @@ export default function Navigation() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md' : 'bg-white/95 backdrop-blur-sm'
+        isScrolled ? 'bg-blue-800 shadow-md text-white' : 'bg-blue-700 text-white'
       }`}
     >
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center space-x-3">
-            <div className="text-2xl font-bold text-blue-700">GFCS</div>
-            <div className="hidden md:block text-xs text-gray-600 border-l pl-3">
-              Expert Advisory<br />& Consulting
-            </div>
+          <Link href="/" className="flex items-center">
+            <img src="/logo.png" alt="GFCS" className="h-[40px] w-auto object-contain" />
           </Link>
 
           <div className="hidden lg:flex items-center space-x-1">
@@ -56,7 +53,7 @@ export default function Navigation() {
               <div key={link.name} className="relative group">
                 <Link
                   href={link.href}
-                  className="px-4 py-2 text-sm font-medium text-gray-700 hover:text-blue-700 transition-colors duration-200"
+                  className="px-4 py-2 text-sm font-medium text-white hover:text-blue-200 transition-colors duration-200"
                 >
                   {link.name}
                 </Link>
@@ -66,7 +63,7 @@ export default function Navigation() {
                       <Link
                         key={sublink.name}
                         href={sublink.href}
-                        className="block px-4 py-3 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors"
+                        className="block px-4 py-3 text-sm text-gray-700 hover:bg-slate-50 hover:text-slate-800 transition-colors"
                       >
                         {sublink.name}
                       </Link>
@@ -78,14 +75,14 @@ export default function Navigation() {
           </div>
 
           <div className="hidden lg:block">
-            <Button href="/contact" size="sm">
+            <Button href="/contact" size="sm" variant="secondary">
               Request Consultation
             </Button>
           </div>
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden p-2 text-gray-700 hover:text-blue-700"
+            className="lg:hidden p-2 text-white hover:text-blue-200"
           >
             <svg
               className="w-6 h-6"
@@ -107,13 +104,13 @@ export default function Navigation() {
       </div>
 
       {isMobileMenuOpen && (
-        <div className="lg:hidden bg-white border-t">
+        <div className="lg:hidden bg-blue-700 border-t border-blue-800 text-white">
           <div className="px-4 py-4 space-y-2">
             {navLinks.map((link) => (
               <div key={link.name}>
                 <Link
                   href={link.href}
-                  className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-blue-50 hover:text-blue-700 rounded-md"
+                  className="block px-4 py-2 text-sm font-medium text-white hover:bg-blue-600/10 hover:text-blue-100 rounded-md"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {link.name}
@@ -124,7 +121,7 @@ export default function Navigation() {
                       <Link
                         key={sublink.name}
                         href={sublink.href}
-                        className="block px-4 py-2 text-xs text-gray-600 hover:bg-blue-50 hover:text-blue-700 rounded-md"
+                        className="block px-4 py-2 text-xs text-white hover:bg-blue-600/10 hover:text-blue-100 rounded-md"
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {sublink.name}
@@ -135,7 +132,7 @@ export default function Navigation() {
               </div>
             ))}
             <div className="pt-4">
-              <Button href="/contact" size="md" className="w-full">
+              <Button href="/contact" size="md" variant="secondary" className="w-full">
                 Request Consultation
               </Button>
             </div>
