@@ -194,12 +194,21 @@ export default function Home() {
       <Section spacing="lg" background="white">
         <Container>
           <FadeIn>
-            <div className="text-center mb-16 px-4">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 max-w-4xl mx-auto leading-tight">
+            <div className="text-center mb-20 px-4">
+              {/* Decorative accent */}
+              <div className="flex justify-center mb-6">
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-1 bg-gradient-to-r from-blue-600 to-blue-400"></div>
+                  <div className="w-2 h-2 rounded-full bg-blue-600"></div>
+                  <div className="w-12 h-1 bg-gradient-to-l from-blue-600 to-blue-400"></div>
+                </div>
+              </div>
+              
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-gray-900 bg-clip-text text-transparent mb-6 max-w-4xl mx-auto leading-tight">
                 Comprehensive Financial Advisory Services
               </h2>
-              <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                From audit and compliance to strategic advisory, we provide end-to-end financial solutions.
+              <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed font-light">
+                From audit and compliance to strategic advisory, we provide end-to-end financial solutions tailored to your needs.
               </p>
             </div>
           </FadeIn>
@@ -209,17 +218,22 @@ export default function Home() {
               <FadeIn key={service.title} delay={index * 100}>
                 <Link
                   href={service.href}
-                  className="group p-8 bg-white border border-gray-200 rounded-lg hover:shadow-xl hover:border-blue-300 transition-all duration-300"
+                  className="group h-full relative p-6 bg-white rounded-2xl hover:shadow-lg transition-all duration-300 flex flex-col"
                 >
-                  <div className="text-blue-600 mb-4">{service.icon}</div>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">
+                  {/* Icon */}
+                  <div className="mb-4 w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-blue-600 group-hover:bg-blue-200 transition-colors duration-300 flex-shrink-0">
+                    {service.icon}
+                  </div>
+                  
+                  <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 mb-4">{service.description}</p>
-                  <span className="text-blue-700 font-medium inline-flex items-center">
+                  <p className="text-sm text-gray-600 mb-5 flex-grow leading-relaxed">{service.description}</p>
+                  
+                  <span className="text-blue-600 font-semibold text-sm inline-flex items-center gap-1.5 group-hover:text-blue-700 transition-colors">
                     Learn more
-                    <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
                     </svg>
                   </span>
                 </Link>

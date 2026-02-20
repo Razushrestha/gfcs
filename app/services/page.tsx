@@ -101,15 +101,15 @@ export default function ServicesPage() {
       <Section background="blue" spacing="lg">
         <Container>
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4 leading-tight">
               Comprehensive Financial & Business Solutions
             </h1>
-            <p className="text-lg text-blue-700 mb-6">
+            <p className="text-lg md:text-xl text-blue-800 mb-8 leading-relaxed">
               From audit and assurance to tax advisory and corporate services, GFCS delivers expert solutions tailored to your business needs.
             </p>
-            <div className="flex items-center justify-center gap-4">
-              <Button href="/contact" variant="primary" size="md">Request a Consultation</Button>
-              <Button href="#services-overview" variant="outline" size="md">Explore Services</Button>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Button href="/contact" variant="primary" size="lg">Request a Consultation</Button>
+              <Button href="#services-overview" variant="outline" size="lg" className="border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white">Explore Services</Button>
             </div>
           </div>
         </Container>
@@ -118,62 +118,51 @@ export default function ServicesPage() {
       {/* Services Overview Section */}
       <Section background="white" spacing="lg">
         <Container>
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <div className="text-center max-w-4xl mx-auto mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
               Our Services
             </h2>
-            <p className="text-lg text-gray-600">
-              We provide end-to-end financial and business advisory services designed to help you navigate complexity, ensure compliance, and drive growth.
+            <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+              We provide end-to-end financial and business advisory services designed to help you navigate complexity, ensure compliance, and drive sustainable growth.
             </p>
           </div>
 
           {/* Services Grid */}
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <div
+              <Link
                 key={service.slug}
-                className="bg-white border border-gray-200 rounded-xl p-8 hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+                href={`/services/${service.slug}`}
+                className="group h-full"
               >
-                {/* Icon & Title */}
-                <div className="flex items-start mb-6">
-                  <div className="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center text-blue-600 flex-shrink-0">
-                    {service.icon}
+                <div className="relative h-full bg-white rounded-2xl p-7 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 flex flex-col"
+                >
+                  {/* Icon */}
+                  <div className="mb-5">
+                    <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-blue-700 rounded-xl flex items-center justify-center text-white flex-shrink-0 group-hover:scale-110 transition-transform duration-300 shadow-sm">
+                      {service.icon}
+                    </div>
                   </div>
-                  <div className="ml-4">
-                    <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                      {service.title}
-                    </h3>
+
+                  {/* Title */}
+                  <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors">
+                    {service.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-sm text-gray-600 mb-5 leading-relaxed flex-grow">
+                    {service.description}
+                  </p>
+
+                  {/* CTA Link */}
+                  <div className="inline-flex items-center text-blue-600 font-semibold text-sm group-hover:text-blue-700 transition-colors">
+                    Learn more
+                    <svg className="w-4 h-4 ml-1.5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                    </svg>
                   </div>
                 </div>
-
-                {/* Description */}
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  {service.description}
-                </p>
-
-                {/* Benefits List */}
-                <ul className="space-y-3 mb-6">
-                  {service.benefits.map((benefit, idx) => (
-                    <li key={idx} className="flex items-start">
-                      <svg className="w-5 h-5 text-green-500 mr-3 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                      </svg>
-                      <span className="text-gray-700">{benefit}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* CTA Link */}
-                <Link
-                  href={`/services/${service.slug}`}
-                  className="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors"
-                >
-                  Learn More About {service.title}
-                  <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
+              </Link>
             ))}
           </div>
         </Container>
@@ -192,37 +181,37 @@ export default function ServicesPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-xl p-8 text-center shadow-sm">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-white rounded-2xl p-8 text-center shadow-md hover:shadow-xl hover:border-blue-200 transition-all duration-500 border border-transparent hover:border-blue-200 group">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Expert Team</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">Expert Team</h3>
               <p className="text-gray-600">
                 Certified professionals with deep industry knowledge and regulatory expertise across all service lines.
               </p>
             </div>
 
-            <div className="bg-white rounded-xl p-8 text-center shadow-sm">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-white rounded-2xl p-8 text-center shadow-md hover:shadow-xl hover:border-blue-200 transition-all duration-500 border border-transparent hover:border-blue-200 group">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Compliance Focused</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">Compliance Focused</h3>
               <p className="text-gray-600">
                 Rigorous adherence to Nepali regulatory standards and international best practices in all engagements.
               </p>
             </div>
 
-            <div className="bg-white rounded-xl p-8 text-center shadow-sm">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="bg-white rounded-2xl p-8 text-center shadow-md hover:shadow-xl hover:border-blue-200 transition-all duration-500 border border-transparent hover:border-blue-200 group">
+              <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Results Driven</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-700 transition-colors">Results Driven</h3>
               <p className="text-gray-600">
                 Actionable insights and measurable outcomes that help clients achieve their strategic and financial goals.
               </p>
@@ -231,36 +220,16 @@ export default function ServicesPage() {
         </Container>
       </Section>
 
-      {/* Contact block */}
-      <Section background="white" spacing="md">
-        <Container>
-          <div className="max-w-4xl mx-auto px-4">
-            <div className="grid md:grid-cols-2 gap-8 items-center bg-white rounded-lg shadow-md p-6 lg:p-8 mb-8">
-              <div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">Get in touch</h3>
-                <p className="text-gray-600 mb-4">Speak with our specialists for tailored advisory and service packages.</p>
-                <p className="text-sm text-gray-700 mb-2"><strong>Phone:</strong> <a href="tel:+9779847761230" className="text-blue-700 hover:underline">+977 9847761230</a></p>
-                <p className="text-sm text-gray-700 mb-4"><strong>Email:</strong> <a href="mailto:corporate@gfcsnepal.com" className="text-blue-700 hover:underline">corporate@gfcsnepal.com</a></p>
-
-              </div>
-              <div className="rounded-lg overflow-hidden border border-gray-200 shadow-sm">
-                <iframe src="https://maps.google.com/maps?q=Banasthali%20Chowk%20Kathmandu&z=15&output=embed" width="100%" height="220" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title="GFCS Location" />
-              </div>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
       {/* CTA Section */}
-      <Section background="blue" spacing="md">
+      <Section background="blue" spacing="lg">
         <Container>
           <ContactCard />
 
-          <div className="text-center max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold text-white mb-4">
+          <div className="text-center max-w-2xl mx-auto mt-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6 leading-tight">
               Ready to Get Started?
             </h2>
-            <p className="text-xl text-blue-100 mb-8">
+            <p className="text-lg text-blue-100 mb-10 leading-relaxed">
               Connect with our team to discuss how GFCS can support your business objectives with tailored advisory solutions.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
