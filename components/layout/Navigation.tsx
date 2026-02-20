@@ -4,6 +4,17 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Button from '@/components/ui/Button';
 
+type NavSubLink = {
+  name: string;
+  href: string;
+};
+
+type NavLink = {
+  name: string;
+  href: string;
+  submenu?: NavSubLink[];
+};
+
 export default function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -37,7 +48,7 @@ export default function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
-  const navLinks = [
+  const navLinks: NavLink[] = [
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/services' },
     { name: 'About', href: '/about' },

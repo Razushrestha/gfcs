@@ -202,7 +202,7 @@ export default function PublicationsPage() {
                 {activeCategoryLabel}{searchQuery ? ` • "${searchQuery}"` : ''}
               </span>
             </p>
-          </div>"
+          </div>
         </Container>
       </Section>
 
@@ -284,6 +284,8 @@ export default function PublicationsPage() {
               </Button>
             </div>
           )}
+            </div>
+          </div>
         </Container>
       </Section>
 
